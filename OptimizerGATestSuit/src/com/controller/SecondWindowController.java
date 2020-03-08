@@ -36,7 +36,7 @@ public class SecondWindowController {
 		else {
 			System.out.println("Switch to next window, and pass the information...");
 			try {
-				AnchorPane nextPane = FXMLLoader.load(ViewsHandler.class.getResource("main-screen.fxml"));
+				AnchorPane nextPane = FXMLLoader.load(ViewsHandler.class.getResource("third-screen.fxml"));
 				rootPane.getChildren().setAll(nextPane);
 			} catch (IOException e) {
 				showAlert(AlertType.ERROR, "Error Dialog",

@@ -2,6 +2,7 @@ module OptimizerGATestSuit {
 	exports com.launcher;
 	exports com.controller;
 	exports com.views;
+	exports com.models;
 	
 	requires javafx.base;
 	requires javafx.fxml;
