@@ -1,5 +1,7 @@
 package com.utils;
 
+import java.util.ArrayList;
+
 public class ProblemSingleton {
 
 	private ProblemSingleton() {};
@@ -29,15 +31,24 @@ public class ProblemSingleton {
 		this.codeStatements = codeStatements;
 	}
 	
-	public int[] getTestCasesArray() {
+	public ArrayList<Integer> getTestCasesArray() {
 		return testCasesArray;
 	}
 
-	public void setTestCasesArray(int[] testCasesArray) {
+	public void setTestCasesArray(ArrayList<Integer> testCasesArray) {
 		this.testCasesArray = testCasesArray;
+	}
+	
+	public void setGAFinished() {
+		gAFinished = true;
+	}
+	
+	public boolean isGAFinished() {
+		return gAFinished;
 	}
 
 	private int testCases;
 	private int codeStatements;
-	private int[] testCasesArray;
+	private ArrayList<Integer> testCasesArray;
+	private boolean gAFinished = false;
 }

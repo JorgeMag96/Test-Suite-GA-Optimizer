@@ -3,6 +3,7 @@ package com.controller;
 import java.io.IOException;
 
 import com.utils.AlertHandler;
+import com.utils.ProblemSingleton;
 import com.views.ViewsHandler;
 
 import javafx.animation.RotateTransition;
@@ -27,7 +28,11 @@ public class LoadingController {
 			@Override
 			public void run() {
 				try {
-					Thread.sleep(5000);
+					Thread.sleep(1000);
+					while(!ProblemSingleton.getInstance().isGAFinished()) {
+						Thread.sleep(1000);
+					}
+					
 					Platform.runLater(() -> transition());
 				}
 				catch (InterruptedException e) {

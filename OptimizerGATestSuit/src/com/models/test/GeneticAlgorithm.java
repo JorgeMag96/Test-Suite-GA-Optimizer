@@ -10,7 +10,7 @@ public class GeneticAlgorithm {
 
 	private List<Individual> population;
 	private int iterations;
-	private int[] testCasesArray;
+	private ArrayList<Integer> testCasesArray;
 	
 	public GeneticAlgorithm(int iterations) {
 		ProblemSingleton singleton = ProblemSingleton.getInstance();
@@ -41,7 +41,7 @@ public class GeneticAlgorithm {
 			System.out.println("Individual "+(i+1)+" "+population.get(i).toString());
 		}
 		
-		System.out.println("Test cases array = "+testCasesArray);
+		System.out.println("Test cases array = "+testCasesArray.toString());
 		System.out.println("Iterations = "+iterations);
 		System.out.println("Max fit found = "+maxFitFound);
 		
@@ -54,6 +54,7 @@ public class GeneticAlgorithm {
 			if(maxFitFound) break;
 		}
 		*/
+		ProblemSingleton.getInstance().setGAFinished();
 	}
 	
 	private void selection() {
