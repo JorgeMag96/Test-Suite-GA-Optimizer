@@ -3,6 +3,7 @@ package com.controller;
 import java.io.File;
 import java.io.IOException;
 
+import com.utils.ProblemSingleton;
 import com.views.ViewsHandler;
 
 import javafx.fxml.FXML;
@@ -19,7 +20,6 @@ public class MainController {
 		File file = new File("resources/images/logo.png");
         Image image = new Image(file.toURI().toString());
         logoView.setImage(image);
-        
         beginBtn.setOnAction(e ->{
         	try {
         		System.out.println("Switching to second window, and passing the information...");

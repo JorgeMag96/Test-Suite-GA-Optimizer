@@ -2,9 +2,12 @@ package com.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.models.TestCase;
+import com.models.test.GeneticAlgorithm;
 import com.utils.AlertHandler;
+import com.utils.ProblemSingleton;
 import com.views.ViewsHandler;
 
 import javafx.collections.FXCollections;
@@ -21,7 +24,6 @@ import javafx.scene.layout.AnchorPane;
 
 public class ThirdWindowController {
 
-	
 	@SuppressWarnings("unchecked")
 	@FXML
 	public void initialize() {
@@ -36,11 +38,15 @@ public class ThirdWindowController {
         statementsCoveredCol.setCellValueFactory(new PropertyValueFactory<TestCase, Integer>("statementsCovered"));
         statementsCoveredCol.setEditable(true);
         
+        ArrayList<TestCase> testCases = new ArrayList<>();
+        ProblemSingleton singleton = ProblemSingleton.getInstance();
+        for(int i = 0; i < singleton.getTestCases(); i++) {
+        	testCases.add(new TestCase("Total number of statements covered by test case "+(i+1),0));
+        }
+        
         table.getColumns().addAll(testCaseCol, statementsCoveredCol);
-        table.setItems(FXCollections.observableArrayList(
-        	      new TestCase("Total number of statements covered by test case 1", 0),
-        	      new TestCase("Total number of statements covered by test case 2", 0)
-        	    ));
+        table.setItems(FXCollections.observableArrayList(testCases));
+        
         table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         
         findMaxBtn.setOnAction(e ->{
@@ -51,7 +57,13 @@ public class ThirdWindowController {
 	private void nextScreenValidation() {
 			System.out.println("Switching to fourth window, and passing the information...");
 			try {
-				AnchorPane nextPane = FXMLLoader.load(ViewsHandler.class.getResource("fourth-screen.fxml"));
+				//TODO: Retrieve table information to pass test cases array to singleton..
+				int[] testArray = {1,5,4,10,3,8,5};
+				ProblemSingleton.getInstance().setTestCasesArray(testArray);
+				GeneticAlgorithm ga = new GeneticAlgorithm(100);
+				ga.startAlgorithm();
+				//TODO: Run genetic algorithm while loading screen shows up.
+				AnchorPane nextPane = FXMLLoader.load(ViewsHandler.class.getResource("loading-screen.fxml"));
 				rootPane.getChildren().setAll(nextPane);
 			} catch (IOException e) {
 				AlertHandler.showAlert(AlertType.ERROR, "Error Dialog",

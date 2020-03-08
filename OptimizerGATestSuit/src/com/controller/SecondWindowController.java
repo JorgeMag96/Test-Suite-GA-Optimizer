@@ -3,7 +3,9 @@ package com.controller;
 import java.io.IOException;
 import java.util.function.UnaryOperator;
 
+import com.models.test.GeneticAlgorithm;
 import com.utils.AlertHandler;
+import com.utils.ProblemSingleton;
 import com.views.ViewsHandler;
 
 import javafx.fxml.FXML;
@@ -36,7 +38,11 @@ public class SecondWindowController {
 		else {
 			System.out.println("Switching to third window, and passing the information...");
 			try {
-				AnchorPane nextPane = FXMLLoader.load(ViewsHandler.class.getResource("loading-screen.fxml"));
+				ProblemSingleton singleton = ProblemSingleton.getInstance();
+				singleton.setCodeStatements(Integer.parseInt(codeStatementsTxt.getText().toString()));
+				singleton.setTestCases(Integer.parseInt(testCasesTxt.getText().toString()));
+				
+				AnchorPane nextPane = FXMLLoader.load(ViewsHandler.class.getResource("third-screen.fxml"));
 				rootPane.getChildren().setAll(nextPane);
 			} catch (IOException e) {
 				AlertHandler.showAlert(AlertType.ERROR, "Error Dialog",

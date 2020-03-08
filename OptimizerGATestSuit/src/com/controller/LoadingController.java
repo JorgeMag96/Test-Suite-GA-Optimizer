@@ -34,7 +34,7 @@ public class LoadingController {
 					AlertHandler.showAlert(AlertType.ERROR, "Error Dialog",
 							e.getMessage(),
 							"");
-				}	
+				}
 			}
 		};
 		
@@ -42,9 +42,8 @@ public class LoadingController {
 	}
 	
 	private void transition() {
-		AnchorPane nextPane;
 		try {
-			nextPane = FXMLLoader.load(ViewsHandler.class.getResource("third-screen.fxml"));
+			AnchorPane nextPane = FXMLLoader.load(ViewsHandler.class.getResource("fourth-screen.fxml"));
 			rootPane.getChildren().setAll(nextPane);
 		} 
 		catch (IOException e) {
