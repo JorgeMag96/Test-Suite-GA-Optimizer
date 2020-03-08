@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.LoadingController">
+   <children>
+      <Circle fx:id="outerCircle" fill="WHITE" layoutX="300.0" layoutY="200.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="10.0" style="-fx-stroke-dash-array: 50;">
+         <effect>
+            <Glow />
+         </effect>
+      </Circle>
+      <Circle fx:id="innerCircle" fill="WHITE" layoutX="300.0" layoutY="200.0" radius="53.0" stroke="#b29a9a" strokeType="INSIDE" strokeWidth="8.0" style="-fx-stroke-dash-array: 60;">
+         <effect>
+            <Glow />
+         </effect>
+      </Circle>
+      <Text fx:id="loadingText" layoutX="277.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Loading..." textAlignment="CENTER" />
+   </children>
+</AnchorPane>
