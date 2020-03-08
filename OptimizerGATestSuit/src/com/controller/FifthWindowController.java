@@ -40,8 +40,8 @@ public class FifthWindowController {
 		}
 }
 	
-	public AnchorPane rootPane;
-	public ImageView imageView;
-	public ListView<TestCase> listView;
-	public Button exitBtn;
+	@FXML private AnchorPane rootPane;
+	@FXML private ImageView imageView;
+	@FXML private ListView<TestCase> listView;
+	@FXML private Button exitBtn;
 }

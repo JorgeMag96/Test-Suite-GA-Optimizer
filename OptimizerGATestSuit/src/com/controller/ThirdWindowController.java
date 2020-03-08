@@ -60,8 +60,8 @@ public class ThirdWindowController {
 			}
 	}
 	
-	public AnchorPane rootPane;
-	public Button findMaxBtn;
-	public TableView<TestCase> table;
-	public ImageView imageView;
+	@FXML private AnchorPane rootPane;
+	@FXML private Button findMaxBtn;
+	@FXML private TableView<TestCase> table;
+	@FXML private ImageView imageView;
 }

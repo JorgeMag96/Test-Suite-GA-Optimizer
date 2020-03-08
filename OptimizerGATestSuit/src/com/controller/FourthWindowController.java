@@ -35,7 +35,7 @@ public class FourthWindowController {
 		}
 	}
 	
-	public AnchorPane rootPane;
-	public ListView<TestCase> listView;
-	public Button proceedBtn;
+	@FXML private AnchorPane rootPane;
+	@FXML private ListView<TestCase> listView;
+	@FXML private Button proceedBtn;
 }

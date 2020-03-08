@@ -5,6 +5,8 @@ module OptimizerGATestSuit {
 	exports com.models;
 	exports com.utils;
 	
+	opens com.controller to javafx.fxml;
+	
 	requires javafx.base;
 	requires javafx.fxml;
 	requires transitive javafx.graphics;

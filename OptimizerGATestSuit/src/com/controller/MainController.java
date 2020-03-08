@@ -32,7 +32,8 @@ public class MainController {
 
 	}
 	
-    public ImageView logoView;
-	public Button beginBtn;
-	public AnchorPane rootPane;
+	
+	@FXML private ImageView logoView;
+	@FXML private Button beginBtn;
+	@FXML private AnchorPane rootPane;
 }

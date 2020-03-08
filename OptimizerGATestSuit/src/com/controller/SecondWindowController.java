@@ -27,6 +27,7 @@ public class SecondWindowController {
 	}
 	
 	private void nextScreenValidation() {
+		
 		if(testCasesTxt.getText().isEmpty() || codeStatementsTxt.getText().isEmpty()) {
 			AlertHandler.showAlert(AlertType.ERROR, "Error Dialog",
 					"Please input number of test cases and statements covered.",
@@ -47,8 +48,8 @@ public class SecondWindowController {
 	
 	
 	
-	public TextField testCasesTxt;
-	public TextField codeStatementsTxt;
-	public Button nextBtn;
-	public AnchorPane rootPane;
+	@FXML private TextField testCasesTxt;
+	@FXML private TextField codeStatementsTxt;
+	@FXML private Button nextBtn;
+	@FXML private AnchorPane rootPane;
 }
