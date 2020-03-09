@@ -1,2 +1,2 @@
-# Test Suit GA Optimizer
+# Test Suite GA Optimizer
 ![](images/GUIPrototype.gif)
