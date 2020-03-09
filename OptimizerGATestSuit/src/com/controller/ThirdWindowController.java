@@ -3,11 +3,10 @@ package com.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 import com.models.TestCase;
-import com.models.test.GeneticAlgorithm;
 import com.utils.AlertHandler;
+import com.utils.GeneticAlgorithm;
 import com.utils.ProblemSingleton;
 import com.views.ViewsHandler;
 
@@ -62,9 +61,8 @@ public class ThirdWindowController {
 	}
 
 	private void nextScreenValidation() {
-			System.out.println("Switching to fourth window, and passing the information...");
 			try {
-				//TODO: Retrieve table information to pass test cases array to singleton..
+				
 				ArrayList<Integer> columnData = new ArrayList<>();
 				for (TestCase item : table.getItems()) {
 				    columnData.add(item.getStatementsCovered());
@@ -73,10 +71,10 @@ public class ThirdWindowController {
 				ProblemSingleton.getInstance().setTestCasesArray(columnData);
 				GeneticAlgorithm ga = new GeneticAlgorithm(100);
 				ga.startAlgorithm();
-				//TODO: Run genetic algorithm while loading screen shows up.
 				AnchorPane nextPane = FXMLLoader.load(ViewsHandler.class.getResource("loading-screen.fxml"));
 				rootPane.getChildren().setAll(nextPane);
-			} catch (IOException e) {
+			} 
+			catch (IOException e) {
 				AlertHandler.showAlert(AlertType.ERROR, "Error Dialog",
 						e.getMessage(),
 						"");

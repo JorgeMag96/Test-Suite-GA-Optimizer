@@ -3,8 +3,8 @@ package com.controller;
 import java.io.IOException;
 import java.util.function.UnaryOperator;
 
-import com.models.test.GeneticAlgorithm;
 import com.utils.AlertHandler;
+import com.utils.GeneticAlgorithm;
 import com.utils.ProblemSingleton;
 import com.views.ViewsHandler;
 
@@ -36,7 +36,6 @@ public class SecondWindowController {
 					"");
 		}
 		else {
-			System.out.println("Switching to third window, and passing the information...");
 			try {
 				ProblemSingleton singleton = ProblemSingleton.getInstance();
 				singleton.setCodeStatements(Integer.parseInt(codeStatementsTxt.getText().toString()));

@@ -22,7 +22,6 @@ public class MainController {
         logoView.setImage(image);
         beginBtn.setOnAction(e ->{
         	try {
-        		System.out.println("Switching to second window, and passing the information...");
 				AnchorPane pane = FXMLLoader.load(ViewsHandler.class.getResource("second-screen.fxml"));
 				rootPane.getChildren().setAll(pane);
 			} catch (IOException e1) {
@@ -31,7 +30,6 @@ public class MainController {
         });
 
 	}
-	
 	
 	@FXML private ImageView logoView;
 	@FXML private Button beginBtn;

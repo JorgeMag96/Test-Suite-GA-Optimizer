@@ -3,8 +3,10 @@ package com.controller;
 import java.io.File;
 import java.io.IOException;
 
+import com.models.Individual;
 import com.models.TestCase;
 import com.utils.AlertHandler;
+import com.utils.GreedyAlgorithm;
 import com.views.ViewsHandler;
 
 import javafx.fxml.FXML;
@@ -26,10 +28,14 @@ public class FifthWindowController {
 		exitBtn.setOnAction(e ->{
 			nextScreenValidation();
 		});
+		
+		GreedyAlgorithm greedyAlgo = new GreedyAlgorithm();
+		Individual lastResult = greedyAlgo.getGreedyIndividual();
+		System.out.println("Test suite with maximum statements covered and minimum test cases = "+lastResult.toString());
+		System.out.println("Statements covered = "+lastResult.getFitness());
 	}
 	
 	private void nextScreenValidation() {
-		System.out.println("Switching to main window, and passing the information...");
 		try {
 			AnchorPane nextPane = FXMLLoader.load(ViewsHandler.class.getResource("main-screen.fxml"));
 			rootPane.getChildren().setAll(nextPane);

@@ -1,57 +1,47 @@
 package com.models;
 
 import java.util.ArrayList;
-import java.util.Random;
+import java.util.Arrays;
 
-public class Individual implements Cloneable{
+import com.utils.ProblemSingleton;
 
-    float fitness = 0;
-    int nS = 0;
-    int nT = 0;
-    ArrayList<Integer> arrList;
-    int[] genes;
-    int geneLength = 0;
+public class Individual implements Comparable<Individual>{
 
-    public Individual(int nT, int nS, ArrayList<Integer> arrList) {
-        this.nT = nT;
-        this.nS = nS;
-        this.arrList = arrList;
-        geneLength = arrList.size();
-        genes = new int[geneLength];
-        
-        Random rn = new Random();
+	private int[] genes;
+	
+	public Individual(int[] genes) {
+		this.genes = genes;
+	}
+	
+	public int[] getGenes() {
+		return genes;
+	}
+	
+	public int getFitness() {
+		ArrayList<Integer> testCasesArray = ProblemSingleton.getInstance().getTestCasesArray();
+		int fitness = 0;
+		for(int i = 0; i < genes.length; i++) {
+			fitness += genes[i] * testCasesArray.get(i);
+		}
+		return fitness;
+	}
+	
+	@Override
+	public String toString() {
+		return " genes=" + Arrays.toString(genes);
+	}
 
-        //Set genes randomly for each individual
-        for (int i = 0; i < genes.length; i++) {
-            genes[i] = Math.abs(rn.nextInt() % 2);
-        }
-
-        fitness = 0;
-    }
-
-    //Calculate fitness
-    public void calcFitness() {
-
-        fitness = 0;
-        for (int j = 0; j < nT; j++) {
-            float sum = 0;
-            for (int i = 0; i < nS; i++) {
-                if (genes[nT * j + i] == 1) {
-                    ++sum;
-                }
-            }
-            fitness += (sum / arrList.get(j));
-        }
-    }
-
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        Individual individual = (Individual)super.clone();
-        individual.genes = new int[geneLength];
-        for(int i = 0; i < individual.genes.length; i++){
-            individual.genes[i] = this.genes[i];
-        }
-        return individual;
-    }
+	@Override
+	public int compareTo(Individual i) {
+		
+		if(getFitness() < i.getFitness()) {
+			return 1;
+		}
+		else if(getFitness() > i.getFitness()) {
+			return -1;
+		}
+		
+		return 0;
+	}
+	
 }

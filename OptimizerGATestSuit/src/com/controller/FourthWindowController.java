@@ -2,8 +2,10 @@ package com.controller;
 
 import java.io.IOException;
 
+import com.models.Individual;
 import com.models.TestCase;
 import com.utils.AlertHandler;
+import com.utils.ProblemSingleton;
 import com.views.ViewsHandler;
 
 import javafx.fxml.FXML;
@@ -21,10 +23,12 @@ public class FourthWindowController {
 		proceedBtn.setOnAction(e -> {
 			nextScreenValidation();
 		});
+		Individual fittest = ProblemSingleton.getInstance().getfittest();
+		System.out.println("Test suite with maximum statements covered = "+fittest.toString());
+		System.out.println("Statements covered = "+fittest.getFitness());
 	}
 	
 	private void nextScreenValidation() {
-		System.out.println("Switching to fifth window, and passing the information...");
 		try {
 			AnchorPane nextPane = FXMLLoader.load(ViewsHandler.class.getResource("fifth-screen.fxml"));
 			rootPane.getChildren().setAll(nextPane);

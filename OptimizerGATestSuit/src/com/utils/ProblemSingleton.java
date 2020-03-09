@@ -2,6 +2,8 @@ package com.utils;
 
 import java.util.ArrayList;
 
+import com.models.Individual;
+
 public class ProblemSingleton {
 
 	private ProblemSingleton() {};
@@ -46,9 +48,18 @@ public class ProblemSingleton {
 	public boolean isGAFinished() {
 		return gAFinished;
 	}
+	
+	public void setFittest(Individual fittest) {
+		this.fittest = fittest;
+	}
+	
+	public Individual getfittest() {
+		return fittest;
+	}
 
 	private int testCases;
 	private int codeStatements;
 	private ArrayList<Integer> testCasesArray;
 	private boolean gAFinished = false;
+	private Individual fittest;
 }
