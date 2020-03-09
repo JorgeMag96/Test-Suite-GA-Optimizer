@@ -63,7 +63,7 @@ public class GeneticAlgorithm {
 		}
 		
 		try {
-			FileWriter myWriter = new FileWriter("results//GeneticAlgorithmResults.txt");
+			FileWriter myWriter = new FileWriter("results//GeneticAlgorithmPopulation.txt");
 			myWriter.write("Test cases array = "+testCasesArray.toString()+"\n\n");
 			population.forEach((e)->{
 				try {
@@ -79,6 +79,7 @@ public class GeneticAlgorithm {
 		catch (IOException e1) {
 			AlertHandler.showAlert(Alert.AlertType.ERROR, "Error while writting to file", e1.getCause().toString(), e1.getMessage());
 		}
+		
 		
 		ProblemSingleton.getInstance().setFittest(population.get(0));
 		ProblemSingleton.getInstance().setGAFinished();

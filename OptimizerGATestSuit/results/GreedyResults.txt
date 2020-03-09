@@ -1,2 +1,10 @@
-Test suite with maximum statements covered and minimum test cases = Genes=[0, 1, 1, 1, 0, 0, 1, 0, 1, 0]
-Statements covered = 55
+Genes=[1, 0, 0, 0, 1, 0, 0, 0, 1, 1]
+---------------------------
+Test case 1 = 10 statements covered.
+Test case 5 = 12 statements covered.
+Test case 9 = 15 statements covered.
+Test case 10 = 16 statements covered.
+---------------------------
+Total test cases = 4
+Total statements covered = 53
+Greedy optimization % of coverage = 105.99999%

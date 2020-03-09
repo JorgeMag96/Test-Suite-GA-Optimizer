@@ -36,17 +36,6 @@ public class GreedyAlgorithm {
 			}
 		}
 		
-		try {
-			FileWriter myWriter = new FileWriter("results//GreedyResults.txt");
-			myWriter.write("Test suite with maximum statements covered and minimum test cases = "+greedyChoice.toString()+"\n");
-			myWriter.write("Statements covered = "+greedyChoice.getFitness()+"\n");
-			myWriter.flush();
-			myWriter.close();
-		}
-		catch (IOException e) {
-			AlertHandler.showAlert(Alert.AlertType.ERROR, "Error while writting to file", e.getCause().toString(), e.getMessage());
-		}
-		
 		return greedyChoice;
 	}
 	

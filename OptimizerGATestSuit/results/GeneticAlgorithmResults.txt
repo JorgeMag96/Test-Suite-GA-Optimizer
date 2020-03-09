@@ -1,102 +1,14 @@
-Test cases array = [5, 10, 8, 15, 4, 1, 9, 8, 13, 7]
-
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[1, 1, 0, 1, 1, 1, 1, 1, 1, 0]	 Fitness = 65
-Genes=[1, 1, 1, 1, 1, 1, 1, 0, 1, 0]	 Fitness = 65
-Genes=[1, 0, 1, 1, 1, 1, 0, 1, 1, 1]	 Fitness = 61
-Genes=[1, 1, 0, 1, 0, 1, 1, 0, 1, 1]	 Fitness = 60
-Genes=[1, 1, 1, 1, 1, 1, 1, 0, 0, 1]	 Fitness = 59
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 0, 0, 0, 0, 1, 1]	 Fitness = 58
-Genes=[1, 1, 1, 1, 1, 0, 0, 1, 0, 1]	 Fitness = 57
-Genes=[1, 0, 1, 1, 0, 0, 0, 1, 1, 1]	 Fitness = 56
-Genes=[0, 0, 0, 1, 1, 0, 1, 1, 1, 1]	 Fitness = 56
-Genes=[1, 1, 1, 1, 0, 0, 1, 1, 0, 0]	 Fitness = 55
-Genes=[1, 1, 0, 1, 0, 1, 1, 1, 0, 1]	 Fitness = 55
-Genes=[0, 1, 1, 1, 1, 0, 1, 1, 0, 0]	 Fitness = 54
-Genes=[0, 1, 0, 1, 1, 0, 1, 1, 0, 1]	 Fitness = 53
-Genes=[0, 1, 0, 1, 1, 0, 1, 1, 0, 1]	 Fitness = 53
-Genes=[0, 1, 0, 1, 1, 0, 1, 1, 0, 1]	 Fitness = 53
-Genes=[0, 1, 0, 1, 1, 0, 1, 1, 0, 1]	 Fitness = 53
-Genes=[0, 1, 0, 1, 1, 0, 1, 1, 0, 1]	 Fitness = 53
-Genes=[1, 1, 1, 1, 1, 0, 1, 0, 1, 1]	 Fitness = 71
-Genes=[0, 1, 0, 1, 1, 0, 1, 1, 0, 1]	 Fitness = 53
+Genes=[1, 1, 1, 1, 1, 0, 0, 1, 1, 1]
+---------------------------
+Test case 1 = 10 statements covered.
+Test case 2 = 8 statements covered.
+Test case 3 = 9 statements covered.
+Test case 4 = 3 statements covered.
+Test case 5 = 12 statements covered.
+Test case 8 = 8 statements covered.
+Test case 9 = 15 statements covered.
+Test case 10 = 16 statements covered.
+---------------------------
+Test cases = 8
+Statements covered = 81
+GA % of coverage = 162.0%
