@@ -1,2 +1,2 @@
-Test suite with maximum statements covered and minimum test cases =  genes=[1, 0, 0, 1, 1, 0, 0, 0, 0, 1]
-Statements covered = 51
+Test suite with maximum statements covered and minimum test cases = Genes=[0, 1, 1, 1, 0, 0, 1, 0, 1, 0]
+Statements covered = 55

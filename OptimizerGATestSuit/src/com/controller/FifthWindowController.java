@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -31,8 +32,14 @@ public class FifthWindowController {
 		
 		GreedyAlgorithm greedyAlgo = new GreedyAlgorithm();
 		Individual lastResult = greedyAlgo.getGreedyIndividual();
-		System.out.println("Test suite with maximum statements covered and minimum test cases = "+lastResult.toString());
-		System.out.println("Statements covered = "+lastResult.getFitness());
+		int testCases = 0;
+		for(int i = 0; i < lastResult.getGenes().length; i++) {
+			if(lastResult.getGenes()[i] == 1) testCases++;
+		}
+		resultsTxtArea.appendText(lastResult.toString()+"\n");
+		resultsTxtArea.appendText("Test cases = "+testCases+"\n");
+		resultsTxtArea.appendText("Statements covered = "+lastResult.getFitness());
+		resultsTxtArea.setEditable(false);
 	}
 	
 	private void nextScreenValidation() {
@@ -48,6 +55,6 @@ public class FifthWindowController {
 	
 	@FXML private AnchorPane rootPane;
 	@FXML private ImageView imageView;
-	@FXML private ListView<TestCase> listView;
+	@FXML private TextArea resultsTxtArea;
 	@FXML private Button exitBtn;
 }

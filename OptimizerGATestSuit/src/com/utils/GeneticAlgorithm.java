@@ -42,9 +42,6 @@ public class GeneticAlgorithm {
 	
 	public void startAlgorithm() {
 		
-		//System.out.println("Optimal fitness = "+optimalFitness);
-		System.out.println("Test cases array = "+testCasesArray.toString());
-		
 		while(iterations > 0) {
 			
 			//if(optimalAchieved()) break;
@@ -75,7 +72,6 @@ public class GeneticAlgorithm {
 				catch (IOException e1) {
 					AlertHandler.showAlert(Alert.AlertType.ERROR, "Error while writting to file", e1.getCause().toString(), e1.getMessage());
 				}
-				System.out.println(e.toString()+" "+e.getFitness());
 			});
 			myWriter.flush();
 			myWriter.close();
@@ -83,8 +79,6 @@ public class GeneticAlgorithm {
 		catch (IOException e1) {
 			AlertHandler.showAlert(Alert.AlertType.ERROR, "Error while writting to file", e1.getCause().toString(), e1.getMessage());
 		}
-		
-		
 		
 		ProblemSingleton.getInstance().setFittest(population.get(0));
 		ProblemSingleton.getInstance().setGAFinished();

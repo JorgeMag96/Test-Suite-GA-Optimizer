@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 
@@ -24,8 +25,14 @@ public class FourthWindowController {
 			nextScreenValidation();
 		});
 		Individual fittest = ProblemSingleton.getInstance().getfittest();
-		System.out.println("Test suite with maximum statements covered = "+fittest.toString());
-		System.out.println("Statements covered = "+fittest.getFitness());
+		int testCases = 0;
+		for(int i = 0; i < fittest.getGenes().length; i++) {
+			if(fittest.getGenes()[i] == 1) testCases++;
+		}
+		resultsTxtArea.appendText(fittest.toString()+"\n");
+		resultsTxtArea.appendText("Test cases = "+testCases+"\n");
+		resultsTxtArea.appendText("Statements covered = "+fittest.getFitness());
+		resultsTxtArea.setEditable(false);
 	}
 	
 	private void nextScreenValidation() {
@@ -40,6 +47,6 @@ public class FourthWindowController {
 	}
 	
 	@FXML private AnchorPane rootPane;
-	@FXML private ListView<TestCase> listView;
+	@FXML private TextArea resultsTxtArea;
 	@FXML private Button proceedBtn;
 }

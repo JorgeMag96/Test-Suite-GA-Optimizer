@@ -28,7 +28,7 @@ public class Individual implements Comparable<Individual>{
 	
 	@Override
 	public String toString() {
-		return " genes=" + Arrays.toString(genes);
+		return "Genes=" + Arrays.toString(genes);
 	}
 
 	@Override
