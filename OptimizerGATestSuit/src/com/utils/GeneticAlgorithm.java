@@ -1,11 +1,21 @@
 package com.utils;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import com.models.Individual;
 
@@ -61,18 +71,57 @@ public class GeneticAlgorithm {
 		}
 		
 		try {
+			FileInputStream fis = new FileInputStream("results//ExcelResults.xlsx");
+			Workbook wb = WorkbookFactory.create(fis);
+			
+			if(wb.getSheet("Genetic Population") == null) {
+				wb.createSheet("Genetic Population");
+			}
+			else {
+				wb.removeSheetAt(wb.getSheetIndex(wb.getSheet("Genetic Population")));
+				wb.createSheet("Genetic Population");
+			}
+			
+			Sheet sheet = wb.getSheet("Genetic Population");
+			
 			FileWriter myWriter = new FileWriter("results//GeneticAlgorithmPopulation.txt");
-			myWriter.write("Test cases array = "+testCasesArray.toString()+"\n\n");
-			population.forEach((e)->{
+			String header = "Test cases array = "+testCasesArray.toString();
+			Row row = sheet.createRow(1);
+			Cell cell = row.createCell(0);
+			cell.setCellValue("Test cases array = ");
+			cell = row.createCell(1);
+			cell.setCellValue(testCasesArray.toString());
+			row = sheet.createRow(3);
+			cell = row.createCell(0);
+			cell.setCellValue("Genes");
+			cell = row.createCell(1);
+			cell.setCellValue("Fitness");
+			
+			myWriter.write(header+"\n\n");
+			for(int i = 0; i < population.size(); i++) {
 				try {
-					myWriter.write(e.toString()+"\t Fitness = "+e.getFitness()+"\n");
+					Row outputRow = sheet.createRow(i+4);
+					
+					Cell outputCell = outputRow.createCell(0);
+					outputCell.setCellValue(population.get(i).toString().replaceFirst("Genes=", ""));
+					
+					outputCell = outputRow.createCell(1);
+					outputCell.setCellValue(population.get(i).getFitness());
+					
+					myWriter.write(population.get(i).toString()+"\t Fitness = "+population.get(i).getFitness()+"\n");
 				} 
 				catch (IOException e1) {
 					AlertHandler.showAlert(Alert.AlertType.ERROR, "Error while writting to file", e1.getCause().toString(), e1.getMessage());
 				}
-			});
+			}
+			
 			myWriter.flush();
 			myWriter.close();
+			FileOutputStream fos = new FileOutputStream("results//ExcelResults.xlsx");
+			wb.write(fos);
+			fos.flush();
+			fos.close();
+			fis.close();
 		} 
 		catch (IOException e1) {
 			AlertHandler.showAlert(Alert.AlertType.ERROR, "Error while writting to file", e1.getCause().toString(), e1.getMessage());

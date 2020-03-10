@@ -1,8 +1,16 @@
 package com.controller;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import com.models.Individual;
 import com.utils.AlertHandler;
@@ -48,28 +56,76 @@ public class FifthWindowController {
 	private void printResults() {
 		GreedyAlgorithm greedyAlgo = new GreedyAlgorithm();
 		Individual lastResult = greedyAlgo.getGreedyIndividual();
-		int testCases = 0;
-		
-		resultsTxtArea.appendText(lastResult.toString()+"\n");
-		resultsTxtArea.appendText("---------------------------\n");
-		for(int i = 0; i < lastResult.getGenes().length; i++) {
-			if(lastResult.getGenes()[i] == 1) {
-				resultsTxtArea.appendText("Test case "+(i+1)+" = "+ProblemSingleton.getInstance().getTestCasesArray().get(i)+" statements covered.\n");
-				testCases++;
-			}
-		}
-		resultsTxtArea.appendText("---------------------------\n");
-		resultsTxtArea.appendText("Total test cases = "+testCases+"\n");
-		resultsTxtArea.appendText("Total statements covered = "+lastResult.getFitness()+"\n");
-		resultsTxtArea.appendText("Greedy % of coverage = "+(((float)lastResult.getFitness()/ProblemSingleton.getInstance().getCodeStatements())*100)+"%\n");
-		resultsTxtArea.appendText("Greedy minimization % = "+(((float)(ProblemSingleton.getInstance().getGeneticAlgorithmFitness()-lastResult.getFitness())/ProblemSingleton.getInstance().getGeneticAlgorithmFitness())*100)+"%");
-		resultsTxtArea.setEditable(false);
-		
 		try {
+			FileInputStream fis = new FileInputStream("results//ExcelResults.xlsx");
+			Workbook wb = WorkbookFactory.create(fis);
+			
+			if(wb.getSheet("Greedy Results") == null) {
+				wb.createSheet("Greedy Results");
+			}
+			else {
+				wb.removeSheetAt(wb.getSheetIndex(wb.getSheet("Greedy Results")));
+				wb.createSheet("Greedy Results");
+			}
+			
+			Sheet sheet = wb.getSheet("Greedy Results");
+			Row row = sheet.createRow(1);
+			Cell cell = row.createCell(0);
+			
+			
+			resultsTxtArea.appendText(lastResult.toString()+"\n");
+			cell.setCellValue(lastResult.toString());
+			resultsTxtArea.appendText("---------------------------\n");
+			
+			row = sheet.createRow(3);
+			cell = row.createCell(0);
+			cell.setCellValue("Test Case");
+			cell = row.createCell(1);
+			cell.setCellValue("Statements Covered");
+			
+			int testCases = 0;
+			for(int i = 0; i < lastResult.getGenes().length; i++) {
+				if(lastResult.getGenes()[i] == 1) {
+					resultsTxtArea.appendText("Test case "+(i+1)+" = "+ProblemSingleton.getInstance().getTestCasesArray().get(i)+" statements covered.\n");
+					Row outputRow = sheet.createRow(testCases+4);
+					Cell outputCell = outputRow.createCell(0);
+					outputCell.setCellValue(testCases+1);
+					outputCell = outputRow.createCell(1);
+					outputCell.setCellValue(ProblemSingleton.getInstance().getTestCasesArray().get(i));
+					testCases++;
+				}
+			}
+		
+			resultsTxtArea.appendText("---------------------------\n");
+			resultsTxtArea.appendText("Total test cases = "+testCases+"\n");
+			row = sheet.createRow(testCases+5);
+			cell = row.createCell(0);
+			cell.setCellValue("Total test cases = "+testCases);
+			
+			resultsTxtArea.appendText("Total statements covered = "+lastResult.getFitness()+"\n");
+			cell = row.createCell(1);
+			cell.setCellValue("Statements covered = "+lastResult.getFitness());
+			
+			resultsTxtArea.appendText("Greedy % of coverage = "+(((float)lastResult.getFitness()/ProblemSingleton.getInstance().getCodeStatements())*100)+"%\n");
+			row = sheet.createRow(testCases+7);
+			cell = row.createCell(0);
+			cell.setCellValue("Greedy % of coverage = "+(((float)lastResult.getFitness()/ProblemSingleton.getInstance().getCodeStatements())*100));
+			
+			resultsTxtArea.appendText("Greedy minimization % = "+(((float)(ProblemSingleton.getInstance().getGeneticAlgorithmFitness()-lastResult.getFitness())/ProblemSingleton.getInstance().getGeneticAlgorithmFitness())*100)+"%");
+			row = sheet.createRow(testCases+8);
+			cell = row.createCell(0);
+			cell.setCellValue("Greedy minimization % = "+(((float)(ProblemSingleton.getInstance().getGeneticAlgorithmFitness()-lastResult.getFitness())/ProblemSingleton.getInstance().getGeneticAlgorithmFitness())*100));
+			resultsTxtArea.setEditable(false);
+		
 			FileWriter myWriter = new FileWriter("results//GreedyResults.txt");
 			myWriter.write(resultsTxtArea.getText());
 			myWriter.flush();
 			myWriter.close();
+			FileOutputStream fos = new FileOutputStream("results//ExcelResults.xlsx");
+			wb.write(fos);
+			fos.flush();
+			fos.close();
+			fis.close();
 		}
 		catch (IOException e) {
 			AlertHandler.showAlert(Alert.AlertType.ERROR, "Error while writting to file", e.getCause().toString(), e.getMessage());

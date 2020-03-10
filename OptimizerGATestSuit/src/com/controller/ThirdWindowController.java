@@ -40,6 +40,7 @@ public class ThirdWindowController {
         
         TableColumn statementsCoveredCol = new TableColumn<>("Statements Covered");
         statementsCoveredCol.setCellValueFactory(new PropertyValueFactory<TestCase, Integer>("statementsCovered"));
+        
         statementsCoveredCol.setCellFactory(TextFieldTableCell.<TestCase, Number>forTableColumn(new NumberStringConverter()));
         statementsCoveredCol.setOnEditCommit(e -> editStatementsCovered((CellEditEvent)e));
         
