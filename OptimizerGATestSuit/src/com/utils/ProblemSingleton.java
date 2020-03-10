@@ -56,10 +56,19 @@ public class ProblemSingleton {
 	public Individual getfittest() {
 		return fittest;
 	}
+	
+	public int getGeneticAlgorithmFitness() {
+		return geneticAlgorithmFitness;
+	}
+
+	public void setGeneticAlgorithmFitness(int geneticAlgorithmFitness) {
+		this.geneticAlgorithmFitness = geneticAlgorithmFitness;
+	}
 
 	private int testCases;
 	private int codeStatements;
 	private ArrayList<Integer> testCasesArray;
 	private boolean gAFinished = false;
 	private Individual fittest;
+	private int geneticAlgorithmFitness;
 }

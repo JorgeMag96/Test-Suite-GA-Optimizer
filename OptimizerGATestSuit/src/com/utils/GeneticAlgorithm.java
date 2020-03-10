@@ -16,14 +16,12 @@ public class GeneticAlgorithm {
 	private List<Individual> population;
 	private int iterations;
 	private ArrayList<Integer> testCasesArray;
-	private int optimalFitness;
 	
 	public GeneticAlgorithm(int iterations) {
 		ProblemSingleton singleton = ProblemSingleton.getInstance();
 		this.testCasesArray = singleton.getTestCasesArray();
 		population = initializePopulation(singleton.getTestCases(), 100);
 		this.iterations = iterations;
-		this.optimalFitness = singleton.getCodeStatements();
 	}
 	
 	private List<Individual> initializePopulation(int genesSize, int populationSize){
@@ -129,16 +127,6 @@ public class GeneticAlgorithm {
 		else {
 			return i2;
 		}
-	}
-	
-	private boolean optimalAchieved() {
-		
-		if(population.get(1).getFitness() > optimalFitness) {
-			return true;
-		}
-		
-		return false;
-		
 	}
 	
 	public List<Individual> getPopulation(){

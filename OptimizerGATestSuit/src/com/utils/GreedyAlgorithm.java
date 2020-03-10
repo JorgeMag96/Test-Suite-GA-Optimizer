@@ -1,14 +1,9 @@
 package com.utils;
 
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-
 import com.models.Individual;
-
-import javafx.scene.control.Alert;
 
 public class GreedyAlgorithm {
 	

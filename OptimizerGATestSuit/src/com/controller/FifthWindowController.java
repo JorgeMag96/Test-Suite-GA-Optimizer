@@ -61,7 +61,8 @@ public class FifthWindowController {
 		resultsTxtArea.appendText("---------------------------\n");
 		resultsTxtArea.appendText("Total test cases = "+testCases+"\n");
 		resultsTxtArea.appendText("Total statements covered = "+lastResult.getFitness()+"\n");
-		resultsTxtArea.appendText("Greedy optimization % of coverage = "+(((float)lastResult.getFitness()/ProblemSingleton.getInstance().getCodeStatements())*100)+"%");
+		resultsTxtArea.appendText("Greedy % of coverage = "+(((float)lastResult.getFitness()/ProblemSingleton.getInstance().getCodeStatements())*100)+"%\n");
+		resultsTxtArea.appendText("Greedy minimization % = "+(((float)(ProblemSingleton.getInstance().getGeneticAlgorithmFitness()-lastResult.getFitness())/ProblemSingleton.getInstance().getGeneticAlgorithmFitness())*100)+"%");
 		resultsTxtArea.setEditable(false);
 		
 		try {

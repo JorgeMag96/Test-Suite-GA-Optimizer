@@ -4,7 +4,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import com.models.Individual;
-import com.models.TestCase;
 import com.utils.AlertHandler;
 import com.utils.ProblemSingleton;
 import com.views.ViewsHandler;
@@ -13,7 +12,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
@@ -57,6 +55,7 @@ public class FourthWindowController {
 		resultsTxtArea.appendText("Test cases = "+testCases+"\n");
 		resultsTxtArea.appendText("Statements covered = "+fittest.getFitness()+"\n");
 		resultsTxtArea.appendText("GA % of coverage = "+(((float)fittest.getFitness()/ProblemSingleton.getInstance().getCodeStatements())*100)+"%");
+		ProblemSingleton.getInstance().setGeneticAlgorithmFitness(fittest.getFitness());
 		resultsTxtArea.setEditable(false);
 		
 		FileWriter myWriter;

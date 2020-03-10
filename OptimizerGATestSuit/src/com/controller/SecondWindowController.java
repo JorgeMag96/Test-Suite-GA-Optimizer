@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.function.UnaryOperator;
 
 import com.utils.AlertHandler;
-import com.utils.GeneticAlgorithm;
 import com.utils.ProblemSingleton;
 import com.views.ViewsHandler;
 

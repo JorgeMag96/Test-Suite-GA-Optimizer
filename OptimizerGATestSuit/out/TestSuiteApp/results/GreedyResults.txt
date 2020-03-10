@@ -1,0 +1,10 @@
+Genes=[1, 1, 1, 1, 0, 0, 0, 0, 0, 0]
+---------------------------
+Test case 1 = 10 statements covered.
+Test case 2 = 20 statements covered.
+Test case 3 = 12 statements covered.
+Test case 4 = 8 statements covered.
+---------------------------
+Total test cases = 4
+Total statements covered = 50
+Greedy optimization % of coverage = 100.0%

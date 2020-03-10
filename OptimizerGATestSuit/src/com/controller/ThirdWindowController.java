@@ -27,7 +27,7 @@ import javafx.util.converter.NumberStringConverter;
 
 public class ThirdWindowController {
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@FXML
 	public void initialize() {
 		File file = new File("resources/images/thirdScreenImage.png");
@@ -81,6 +81,7 @@ public class ThirdWindowController {
 			}
 	}
 	
+	@SuppressWarnings("rawtypes")
 	public void editStatementsCovered(CellEditEvent edittedCell) {
 		TestCase testCaseSelected = table.getSelectionModel().getSelectedItem();
 		testCaseSelected.setStatementsCovered(Integer.parseInt(edittedCell.getNewValue().toString()));

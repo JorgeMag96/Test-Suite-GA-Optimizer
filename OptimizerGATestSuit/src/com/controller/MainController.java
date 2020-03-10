@@ -3,9 +3,7 @@ package com.controller;
 import java.io.File;
 import java.io.IOException;
 
-import com.utils.ProblemSingleton;
 import com.views.ViewsHandler;
-
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
