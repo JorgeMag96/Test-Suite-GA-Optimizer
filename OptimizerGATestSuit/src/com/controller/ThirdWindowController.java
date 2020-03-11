@@ -3,70 +3,75 @@ package com.controller;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.function.Function;
 
 import com.models.TestCase;
 import com.utils.AlertHandler;
+import com.utils.EditCell;
 import com.utils.GeneticAlgorithm;
 import com.utils.ProblemSingleton;
 import com.views.ViewsHandler;
 
-import javafx.collections.FXCollections;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.converter.NumberStringConverter;
 
 public class ThirdWindowController {
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+	@SuppressWarnings({ "unchecked" })
 	@FXML
 	public void initialize() {
 		File file = new File("resources/images/thirdScreenImage.png");
         Image image = new Image(file.toURI().toString());
         imageView.setImage(image);
         
+        table.getSelectionModel().setCellSelectionEnabled(true);
         table.setEditable(true);
-        TableColumn testCaseCol = new TableColumn<>("Test Case");
-        testCaseCol.setCellValueFactory(new PropertyValueFactory<TestCase, String>("testCase"));
-        
-        TableColumn statementsCoveredCol = new TableColumn<>("Statements Covered");
-        statementsCoveredCol.setCellValueFactory(new PropertyValueFactory<TestCase, Integer>("statementsCovered"));
-        
-        statementsCoveredCol.setCellFactory(TextFieldTableCell.<TestCase, Number>forTableColumn(new NumberStringConverter()));
-        statementsCoveredCol.setOnEditCommit(e -> editStatementsCovered((CellEditEvent)e));
+        table.getColumns().add(createColumn("Test Case", TestCase::testCaseProperty));
+        table.getColumns().add(createColumn("Statements Covered", TestCase::statementsCoveredProperty));
         
         ArrayList<TestCase> testCases = new ArrayList<>();
         ProblemSingleton singleton = ProblemSingleton.getInstance();
         for(int i = 0; i < singleton.getTestCases(); i++) {
-        	testCases.add(new TestCase("Total number of statements covered by test case "+(i+1), 0));
+        	testCases.add(new TestCase("Total number of statements covered by test case "+(i+1), "0"));
         }
         
-        table.getColumns().addAll(testCaseCol, statementsCoveredCol);
-        table.setItems(FXCollections.observableArrayList(testCases));
+        table.getItems().addAll(testCases);
         
-        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
-        
+        table.setOnKeyPressed(event -> {
+            TablePosition<TestCase, ?> pos = table.getFocusModel().getFocusedCell() ;
+            if (pos != null && event.getCode().isLetterKey()) {
+                table.edit(pos.getRow(), pos.getTableColumn());
+            }
+        });
         
         findMaxBtn.setOnAction(e ->{
         	nextScreenValidation();
         });
 	}
 
+	private <T> TableColumn<T, String> createColumn(String title, Function<T, StringProperty> property) {
+        TableColumn<T, String> col = new TableColumn<>(title);
+        col.setCellValueFactory(cellData -> property.apply(cellData.getValue()));
+        
+        col.setCellFactory(column -> EditCell.createStringEditCell());
+        return col ;
+    }
+	
 	private void nextScreenValidation() {
 			try {
 				
 				ArrayList<Integer> columnData = new ArrayList<>();
 				for (TestCase item : table.getItems()) {
-				    columnData.add(item.getStatementsCovered());
+				    columnData.add(Integer.parseInt(item.getStatementsCovered()));
 				}
 				
 				ProblemSingleton.getInstance().setTestCasesArray(columnData);
@@ -80,12 +85,6 @@ public class ThirdWindowController {
 						e.getMessage(),
 						"");
 			}
-	}
-	
-	@SuppressWarnings("rawtypes")
-	public void editStatementsCovered(CellEditEvent edittedCell) {
-		TestCase testCaseSelected = table.getSelectionModel().getSelectedItem();
-		testCaseSelected.setStatementsCovered(Integer.parseInt(edittedCell.getNewValue().toString()));
 	}
 	
 	@FXML private AnchorPane rootPane;

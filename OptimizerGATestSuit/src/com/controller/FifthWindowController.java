@@ -97,14 +97,14 @@ public class FifthWindowController {
 			}
 		
 			resultsTxtArea.appendText("---------------------------\n");
-			resultsTxtArea.appendText("Total test cases = "+testCases+"\n");
+			resultsTxtArea.appendText("Total TC = "+testCases+"\n");
 			row = sheet.createRow(testCases+5);
 			cell = row.createCell(0);
-			cell.setCellValue("Total test cases = "+testCases);
+			cell.setCellValue("Total TC = "+testCases);
 			
-			resultsTxtArea.appendText("Total statements covered = "+lastResult.getFitness()+"\n");
+			resultsTxtArea.appendText("Total SC = "+lastResult.getFitness()+"\n");
 			cell = row.createCell(1);
-			cell.setCellValue("Statements covered = "+lastResult.getFitness());
+			cell.setCellValue("Total SC = "+lastResult.getFitness());
 			
 			resultsTxtArea.appendText("Greedy % of coverage = "+(((float)lastResult.getFitness()/ProblemSingleton.getInstance().getCodeStatements())*100)+"%\n");
 			row = sheet.createRow(testCases+7);

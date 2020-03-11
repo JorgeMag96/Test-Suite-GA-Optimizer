@@ -90,14 +90,14 @@ public class FourthWindowController {
 			}
 			
 			resultsTxtArea.appendText("---------------------------\n");
-			resultsTxtArea.appendText("Total test cases = "+testCases+"\n");
+			resultsTxtArea.appendText("Total TC = "+testCases+"\n");
 			row = sheet.createRow(testCases+5);
 			cell = row.createCell(0);
-			cell.setCellValue("Total test cases = "+testCases);
+			cell.setCellValue("Total TC = "+testCases);
 			
-			resultsTxtArea.appendText("Statements covered = "+fittest.getFitness()+"\n");
+			resultsTxtArea.appendText("Total SC = "+fittest.getFitness()+"\n");
 			cell = row.createCell(1);
-			cell.setCellValue("Statements covered = "+fittest.getFitness());
+			cell.setCellValue("Total SC = "+fittest.getFitness());
 			
 			resultsTxtArea.appendText("GA % of coverage = "+(((float)fittest.getFitness()/ProblemSingleton.getInstance().getCodeStatements())*100)+"%");
 			row = sheet.createRow(testCases+7);

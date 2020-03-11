@@ -1,12 +1,14 @@
-Genes=[1, 1, 0, 1, 0, 0, 1, 1, 0, 1]
+Genes=[1, 1, 1, 1, 1, 1, 0, 1, 1, 0]
 ---------------------------
-Test case 1 = 10 statements covered.
-Test case 2 = 12 statements covered.
-Test case 4 = 5 statements covered.
-Test case 7 = 8 statements covered.
-Test case 8 = 9 statements covered.
-Test case 10 = 3 statements covered.
+Test case 1 = 12 statements covered.
+Test case 2 = 32 statements covered.
+Test case 3 = 12 statements covered.
+Test case 4 = 1 statements covered.
+Test case 5 = 3 statements covered.
+Test case 6 = 2 statements covered.
+Test case 8 = 2 statements covered.
+Test case 9 = 2 statements covered.
 ---------------------------
-Total test cases = 6
-Statements covered = 47
-GA % of coverage = 94.0%
+Total test cases = 8
+Statements covered = 66
+GA % of coverage = 132.0%

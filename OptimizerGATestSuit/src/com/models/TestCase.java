@@ -1,29 +1,40 @@
 package com.models;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class TestCase {
-	private String testCase;
-	private Integer statementsCovered;
-	 
-	public TestCase(String testCase, Integer statementsCovered) {
-		this.testCase = testCase;
-		this.statementsCovered = statementsCovered;
+    
+    private final StringProperty testCase = new SimpleStringProperty();;
+    private final StringProperty statementsCovered = new SimpleStringProperty();;
+	
+	public TestCase(String testCase, String statementsCovered) {
+		setTestCase(testCase);
+		setStatementsCovered(statementsCovered);
 	}
 
 	public String getTestCase() {
-		return testCase;
+		return this.testCaseProperty().get();
 	}
 
-	public void setTestCase(String testCase) {
-		this.testCase = testCase;
+	 public final StringProperty testCaseProperty() {
+         return this.testCase;
+     }
+	 
+	public final void setTestCase(final java.lang.String testCase) {
+        this.testCaseProperty().set(testCase);
+    }
+
+	public String getStatementsCovered() {
+		return this.statementsCoveredProperty().get();
 	}
 
-	public Integer getStatementsCovered() {
-		return statementsCovered;
-	}
+	 public final StringProperty statementsCoveredProperty() {
+         return this.statementsCovered;
+     }
+	 
+	public final void setStatementsCovered(final java.lang.String statementsCovered) {
+        this.statementsCoveredProperty().set(statementsCovered);
+    }
 
-	public void setStatementsCovered(Integer statementsCovered) {
-		this.statementsCovered = statementsCovered;
-	}
-	
-	
 }
