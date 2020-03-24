@@ -1,8 +1,11 @@
 package com.utils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.models.Individual;
+
+import javafx.stage.Stage;
 
 public class ProblemSingleton {
 
@@ -17,6 +20,14 @@ public class ProblemSingleton {
 		private static final ProblemSingleton uniqueInstance = new ProblemSingleton();
 	}
 	
+	public Stage getStage() {
+		return stage;
+	}
+
+	public void setStage(Stage stage) {
+		this.stage = stage;
+	}
+
 	public int getTestCases() {
 		return testCases;
 	}
@@ -63,8 +74,27 @@ public class ProblemSingleton {
 
 	public void setGeneticAlgorithmFitness(int geneticAlgorithmFitness) {
 		this.geneticAlgorithmFitness = geneticAlgorithmFitness;
+	}	
+
+	public boolean isFromDataFile() {
+		return isFromDataFile;
 	}
 
+	public void setFromDataFile(boolean isFromDataFile) {
+		this.isFromDataFile = isFromDataFile;
+	}	
+	
+	public List<Integer> getCodeStatementsList() {
+		return codeStatementsList;
+	}
+
+	public void setCodeStatementsList(List<Integer> codeStatementsList) {
+		this.codeStatementsList = codeStatementsList;
+	}
+
+	private List<Integer> codeStatementsList = new ArrayList<>();
+	private boolean isFromDataFile = false;
+	private Stage stage;
 	private int testCases;
 	private int codeStatements;
 	private ArrayList<Integer> testCasesArray;

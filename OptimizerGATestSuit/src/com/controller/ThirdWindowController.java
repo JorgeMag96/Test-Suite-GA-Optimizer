@@ -37,14 +37,20 @@ public class ThirdWindowController {
         table.setEditable(true);
         table.getColumns().add(createColumn("Test Case", TestCase::testCaseProperty));
         table.getColumns().add(createColumn("Statements Covered", TestCase::statementsCoveredProperty));
-        
-        ArrayList<TestCase> testCases = new ArrayList<>();
-        ProblemSingleton singleton = ProblemSingleton.getInstance();
-        for(int i = 0; i < singleton.getTestCases(); i++) {
-        	testCases.add(new TestCase("Total number of statements covered by test case "+(i+1), "0"));
+                
+        singleton = ProblemSingleton.getInstance();
+        if(singleton.isFromDataFile()) {
+        	loadDataFromFile();
         }
+        else {
+        	ArrayList<TestCase> testCases = new ArrayList<>();
+        	for(int i = 0; i < singleton.getTestCases(); i++) {
+            	testCases.add(new TestCase("Total number of statements covered by test case "+(i+1), "0"));
+            }
+        	table.getItems().addAll(testCases);
+        }        
         
-        table.getItems().addAll(testCases);
+        
         
         table.setOnKeyPressed(event -> {
             TablePosition<TestCase, ?> pos = table.getFocusModel().getFocusedCell() ;
@@ -56,6 +62,8 @@ public class ThirdWindowController {
         findMaxBtn.setOnAction(e ->{
         	nextScreenValidation();
         });
+        
+        
 	}
 
 	private <T> TableColumn<T, String> createColumn(String title, Function<T, StringProperty> property) {
@@ -87,8 +95,21 @@ public class ThirdWindowController {
 			}
 	}
 	
+	private void loadDataFromFile() {
+		ArrayList<Integer> codeStatementsList = (ArrayList)singleton.getCodeStatementsList();
+		System.out.println("load data from file to table");
+		System.out.println(codeStatementsList.size());
+		
+		ArrayList<TestCase> testCases = new ArrayList<>();
+    	for(int i = 0; i < singleton.getTestCases(); i++) {
+        	testCases.add(new TestCase("Total number of statements covered by test case "+(i+1), codeStatementsList.get(i).toString()));
+        }
+    	table.getItems().addAll(testCases);
+	}
+	
 	@FXML private AnchorPane rootPane;
 	@FXML private Button findMaxBtn;
 	@FXML private TableView<TestCase> table;
 	@FXML private ImageView imageView;
+	private ProblemSingleton singleton;
 }

@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import com.utils.ProblemSingleton;
 
 
 public class Main extends Application {
@@ -15,8 +16,9 @@ public class Main extends Application {
 	Scene scene1, scene2;
 	
 	@Override
-    public void start(Stage stage) throws Exception{
+    public void start(Stage stage) throws Exception {
 		window = stage;
+		ProblemSingleton.getInstance().setStage(window);
 		FXMLLoader loader = new FXMLLoader(ViewsHandler.class.getResource("main-screen.fxml"));
 		Parent root = (Parent)loader.load();
 		
